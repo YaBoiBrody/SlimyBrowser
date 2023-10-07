@@ -8,14 +8,10 @@
     <style>
         html, body {
             height: 100%;
-            overflow: hidden;
-        }
-
-        body {
             font-family: 'Arial', sans-serif;
-            background-color: #1f1f1f;
-            color: #ccc;
             margin: 0;
+            background-color: #1f1f1f;
+            color: #ddd;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -23,145 +19,102 @@
         }
 
         .container {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
+            background-color: #2e2e2e;
+            padding: 30px;
+            border-radius: 15px;
             max-width: 600px;
-            width: 100%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
+            width: 90%;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
             animation: fadeIn 0.5s forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            text-align: center;
         }
 
         h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
         }
 
         .logo {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
+            width: 80%;
+            margin: 20px 0;
         }
 
         .input-group {
             display: flex;
-            max-width: 100%;
             margin-bottom: 20px;
+            justify-content: center;
         }
 
         input[type="text"] {
             flex: 1;
-            padding: 10px;
-            border: 1px solid #777;
+            padding: 10px 15px;
+            border: 2px solid #444;
+            border-right: none;
             border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+            color: #ddd;
             background-color: #333;
-            color: #ccc;
-            transition: border-color 0.3s;
-            font-family: 'Arial', sans-serif;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        input[type="text"]:focus {
-            border-color: #007bff;
-        }
-
-        input[type="text"]::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, #fff 10%, transparent 10.5%);
-            background-size: 10px 10px;
-            pointer-events: none;
-            animation: sparkle 0.8s infinite;
-        }
-
-        @keyframes sparkle {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+        input[type="text"]:hover, input[type="text"]:focus {
+            border-color: #007acc;
+            outline: none;
+            background-color: #444;
         }
 
         button {
             padding: 10px 20px;
-            background-color: #007bff;
+            background-color: #007acc;
             border: none;
             border-radius: 0 5px 5px 0;
             color: #fff;
+            font-size: 1rem;
             cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
-            font-family: 'Arial', sans-serif;
+            transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
+            background-color: #005d9a;
         }
 
         .button-group {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             margin-top: 20px;
         }
 
         .button-item button {
-            width: 120px;
-            height: 120px;
-            border-radius: 20px;
-            font-size: 18px;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            background-color: #007acc;
+            transition: background-color 0.3s;
+            text-align: left;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            transition: transform 0.3s, background-color 0.3s;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .button-item button:hover {
-            transform: scale(1.1);
+            gap: 10px;
         }
 
         .button-item img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .button-item button:hover {
+            background-color: #005d9a;
         }
 
         .note {
-            font-size: 1rem;
-            margin-top: 20px;
+            font-size: 0.9rem;
+            margin-top: 30px;
             font-style: italic;
-            color: #555;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .placeholder-text {
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
-            animation-delay: 1s;
+            color: #bbb;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -195,72 +148,38 @@
             }
 
             type();
-
-            searchInput.addEventListener('keyup', function(event) {
-                if (event.key === 'Enter') {
-                    openPage();
-                }
-            });
-
-            var placeholderText = document.querySelector('.placeholder-text');
-            placeholderText.style.opacity = '1';
         });
-
-        function sparkle(event) {
-            var input = event.target;
-            input.style.borderBottomColor = 'rgba(255, 255, 255, 0.6)';
-            setTimeout(function() {
-                input.style.borderBottomColor = '';
-            }, 300);
-        }
-
     </script>
 
     <div class="container">
-        <h1>Welcome to Ratchet Method</h1>
-
-        <div class="title">Search Skligga</div>
-
-        <img class="logo"
-            src="https://media.tenor.com/odF-mX4YCcwAAAAC/rachet-cat-attack.gif"
-            alt="Ratchet Logo">
-
+        <h1>Ratchet Method</h1>
+        <img class="logo" src="https://media.tenor.com/odF-mX4YCcwAAAAC/rachet-cat-attack.gif" alt="Ratchet Logo">
         <div class="input-group">
-            <input type="text" id="searchInput" placeholder="" class="placeholder-text" oninput="sparkle(event)">
+            <input type="text" id="searchInput" placeholder="">
             <button onclick="openPage()">Go</button>
         </div>
-
         <div class="button-group">
             <div class="button-item">
-                <button
-                    onclick="window.open('https://discord.com', '_blank')">
-                    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/j9ayl2y9.png"
-                        alt="Discord">
+                <button onclick="window.open('https://discord.com', '_blank')">
+                    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/j9ayl2y9.png" alt="Discord">
                     Discord
                 </button>
             </div>
             <div class="button-item">
-                <button
-                    onclick="window.open('https://cplegacy.com', '_blank')">
-                    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/vidvje9z.png"
-                        alt="Club Penguin">
+                <button onclick="window.open('https://cplegacy.com', '_blank')">
+                    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/vidvje9z.png" alt="Club Penguin">
                     Club Penguin
                 </button>
             </div>
             <div class="button-item">
-                <button
-                    onclick="window.open('https://coolmathgames.com', '_blank')">
-                    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/lrnfi2z8.png"
-                        alt="CoolMath">
+                <button onclick="window.open('https://coolmathgames.com', '_blank')">
+                    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/lrnfi2z8.png" alt="CoolMath">
                     CoolMath
                 </button>
             </div>
         </div>
-
         <div class="note">
-            Use the Two arrows on your chromebooks keyboard to move back and forth throughout pages. When you click on
-            any of the three squares, or use the search it will pop up in an unblocked window, to go back to this home
-            page hit the X in the top right of it.
+            Use the Two arrows on your chromebook's keyboard to move back and forth throughout pages. When you click on any of the three buttons or use the search, it will pop up in an unblocked window. To return to this homepage, hit the X in the top right of the window.
         </div>
     </div>
 </body>
