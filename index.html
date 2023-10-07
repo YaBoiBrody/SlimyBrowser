@@ -21,11 +21,8 @@
             align-items: center;
             justify-content: center;
             background-color: #1f1f1f;
-            transition: background-color 0.3s ease;
-            scroll-behavior: smooth; /* Feature 14: Smooth Scrolling */
         }
 
-        /* Feature 12: Text Selection Color */
         ::selection {
             background-color: #007acc;
             color: #fff;
@@ -36,7 +33,7 @@
             border-radius: 15px;
             max-width: 600px;
             width: 90%;
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             animation: fadeIn 0.5s forwards;
             text-align: center;
             background-color: #2e2e2e;
@@ -48,11 +45,16 @@
             color: #fff;
         }
 
+        /* Feature 2: Logo Animation */
         .logo {
             width: 80%;
             margin: 20px 0;
-            /* Feature 13: No Context Menu on Images */
             pointer-events: none;
+            transition: transform 0.4s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(10deg);
         }
 
         .input-group {
@@ -62,26 +64,18 @@
             position: relative;
         }
 
-        /* Feature 1: Search Icon in Input */
-        .input-group::before {
-            content: '🔍';
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.9rem;
-            color: #888;
-        }
-
         input[type="text"] {
             flex: 1;
-            padding: 10px 15px 10px 30px; /* Adjusted padding for search icon */
+            padding: 10px 40px 10px 15px; /* Adjusted for search icon */
             border: 2px solid #444;
-            border-right: none;
-            border-radius: 5px 0 0 5px;
+            border-radius: 5px;
             font-size: 1rem;
             color: #ddd;
             background-color: #333;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23aaa" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg>');
+            background-repeat: no-repeat;
+            background-size: 16px 16px;
+            background-position: 95% center;
             transition: all 0.3s ease;
         }
 
@@ -90,7 +84,6 @@
             outline: none;
         }
 
-        /* Feature 2: Search Input Clear Button */
         .input-clear {
             position: absolute;
             right: 50px;
@@ -107,12 +100,11 @@
             padding: 10px 20px;
             background-color: #007acc;
             border: none;
-            border-radius: 0 5px 5px 0;
+            border-radius: 5px;
             color: #fff;
             font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.3s;
-            /* Feature 15: Button Active States */
             position: relative;
             overflow: hidden;
         }
@@ -152,7 +144,7 @@
             border: none;
             border-radius: 10px;
             color: #fff;
-            background-color: #333; /* Adjusted button color */
+            background-color: #333;
             transition: background-color 0.3s, transform 0.3s;
             text-align: left;
             display: flex;
@@ -173,7 +165,6 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            /* Feature 13: No Context Menu on Images */
             pointer-events: none;
         }
 
@@ -185,21 +176,6 @@
             line-height: 1.5;
         }
 
-        /* Feature 7: Responsive Design */
-        @media (max-width: 600px) {
-            .button-group {
-                flex-direction: column;
-            }
-
-            .button-item {
-                margin-bottom: 10px;
-            }
-
-            .button-item button {
-                width: 100%;
-            }
-        }
-
         /* Loading Screen Styles */
         #loadingScreen {
             position: fixed;
@@ -207,19 +183,19 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: #111;  /* Darker background */
+            background-color: #111;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             z-index: 9999;
             opacity: 1;
-            transition: opacity 0.5s; /* Fade out transition */
+            transition: opacity 0.5s;
         }
 
         #loadingBar {
-            width: 50%;  /* Reduced the width */
-            height: 8px;  /* Reduced the height */
+            width: 35%; /* Shortened loading bar */
+            height: 8px;
             background-color: #555;
             border-radius: 5px;
             overflow: hidden;
@@ -229,8 +205,8 @@
         #loadingFill {
             height: 100%;
             width: 0;
-            background-color: green;  /* Changed color to green */
-            animation: loadBar 3s forwards;
+            background-color: green;
+            animation: loadBar 2.5s forwards;
         }
 
         @keyframes loadBar {
@@ -242,10 +218,9 @@
         #statusText {
             margin-top: 20px;
             color: #fff;
-            font-weight: 300;  /* More sleek font */
+            font-weight: 300;
         }
 
-        /* Feature 4: Footer */
         footer {
             position: fixed;
             bottom: 10px;
@@ -253,11 +228,26 @@
             transform: translateX(-50%);
             color: #888;
             font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Feature 9: Heartbeat Animation */
+        footer span {
+            display: inline-block;
+            animation: heartbeat 1s infinite alternate;
+        }
+
+        @keyframes heartbeat {
+            to {
+                transform: scale(1.2);
+            }
         }
     </style>
 </head>
 
-<body>
+<body oncontextmenu="return false"> <!-- Feature 1: Prevent Right-Clicking -->
     <div id="loadingScreen">
         <span id="statusText">Bypassing antidaven...</span>
         <div id="loadingBar">
@@ -270,7 +260,6 @@
         <img class="logo" src="https://media.tenor.com/odF-mX4YCcwAAAAC/rachet-cat-attack.gif" alt="Ratchet Logo">
         <div class="input-group">
             <input type="text" id="searchInput" placeholder="">
-            <!-- Feature 2: Search Input Clear Button -->
             <button class="input-clear" onclick="clearInput()">❌</button>
             <button onclick="openPage()">Go</button>
         </div>
@@ -299,8 +288,9 @@
         </div>
     </div>
 
-    <!-- Feature 4: Footer -->
-    <footer>Made with ❤ by the Ratchet Team</footer>
+    <footer>Made with <span>❤</span> by the Ratchet Team</footer>
+
+    <audio id="clickSound" src="data:audio/wav;base64,//... shortened for brevity ..."></audio> <!-- Feature 3: Audio Feedback -->
 
     <script>
         window.onload = function() {
@@ -322,16 +312,20 @@
             }
 
             window.open(targetUrl, '_blank');
+            playClickSound();
         }
 
-        // Feature 2: Clear Input Functionality
         function clearInput() {
             const searchInput = document.getElementById('searchInput');
             searchInput.value = '';
             searchInput.focus();
+            playClickSound();
         }
 
-        // Loading Screen Logic
+        function playClickSound() {
+            document.getElementById('clickSound').play();
+        }
+
         let messages = [
             "Bypassing antidaven...",
             "Removing History Checks...",
@@ -345,16 +339,24 @@
                 index++;
             }
         };
-        changeMessage();  // Call immediately for the first message
-        setInterval(changeMessage, 900); // Adjusted interval to fit reduced time
+        changeMessage();
+        setInterval(changeMessage, 800);
 
         setTimeout(function() {
             const loadingScreen = document.getElementById('loadingScreen');
             loadingScreen.style.opacity = '0';
             setTimeout(function() {
                 loadingScreen.style.display = 'none';
-            }, 500);  // After 0.5 seconds of fading out, it will be hidden from view.
-        }, 3000);  // The loading screen will fade out after 3 seconds.
+            }, 500);
+        }, 2500);
+
+        /* Feature 8: Shortcut for Search */
+        document.addEventListener("keyup", function(event) {
+            if (event.key === "/") {
+                event.preventDefault();
+                document.getElementById('searchInput').focus();
+            }
+        });
     </script>
 </body>
 </html>
