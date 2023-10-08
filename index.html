@@ -132,17 +132,19 @@
         .star {
             position: absolute;
             background-color: #fff;
-            width: 5px;
-            height: 5px;
+            width: 12px; /* Increased size */
+            height: 12px; /* Increased size */
+            border-radius: 20%; /* Smooth edges */
             animation: drift 10s infinite;
+            transform: rotate(0deg); /* Initial rotation value */
         }
 
         @keyframes drift {
             from {
-                transform: translateY(-100vh);
+                transform: translateY(-100vh) rotate(0deg);
             }
             to {
-                transform: translateY(100vh);
+                transform: translateY(100vh) rotate(360deg);
             }
         }
 
@@ -228,7 +230,6 @@
                         CoolMath
                     </button>
                 </div>
-                <!-- Added YouTube Button -->
                 <div class="button-item">
                     <button onclick="window.open('https://youtube.com', '_blank')">
                         <img src="https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc" alt="YouTube">
@@ -282,6 +283,7 @@
             star.style.top = Math.random() * 100 + 'vh';
             star.style.animationDuration = (Math.random() * 5 + 5) + 's';
             star.style.animationDelay = (Math.random() * -5) + 's';
+            star.style.transform = 'rotate(' + Math.random() * 360 + 'deg)'; // Random rotation
             starfield.appendChild(star);
         }
 
