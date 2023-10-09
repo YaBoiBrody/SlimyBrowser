@@ -33,25 +33,25 @@
 
         .container {
             z-index: 2;
-            padding: 20px; /* Reduced vertical padding */
+            padding: 14px; /* Reduced from 20px (30% smaller) */
             border-radius: 15px;
-            max-width: 700px; /* Increased max-width */
-            width: 95%; /* Increased width percentage */
+            max-width: 490px; /* Reduced from 700px (30% smaller) */
+            width: 66.5%; /* Reduced from 95% (30% smaller) */
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             text-align: center;
             background-color: #2e2e2e;
-            margin-bottom: 30px;
+            margin-bottom: 21px; /* Reduced from 30px (30% smaller) */
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 1.75rem; /* Reduced from 2.5rem (30% smaller) */
+            margin-bottom: 7px; /* Reduced from 10px (30% smaller) */
             color: #fff;
         }
 
         .logo {
-            width: 80%;
-            margin: 20px 0;
+            width: 56%; /* Reduced from 80% (30% smaller) */
+            margin: 14px 0; /* Reduced from 20px (30% smaller) */
             pointer-events: none;
             transition: transform 0.4s ease;
         }
@@ -59,17 +59,17 @@
         /* Input Group */
         .input-group {
             display: flex;
-            margin-bottom: 10px;
+            margin-bottom: 7px; /* Reduced from 10px (30% smaller) */
             justify-content: center;
             position: relative;
         }
 
         input[type="text"] {
             flex: 1;
-            padding: 10px 45px 10px 15px;
+            padding: 7px 31.5px 7px 10.5px; /* Reduced padding (30% smaller) */
             border: 2px solid #444;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 0.7rem; /* Reduced from 1rem (30% smaller) */
             color: #ddd;
             background-color: #333;
             background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
@@ -89,16 +89,16 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            gap: 20px;
-            margin-top: 10px;
+            gap: 14px; /* Reduced from 20px (30% smaller) */
+            margin-top: 7px; /* Reduced from 10px (30% smaller) */
         }
 
         .button-item button {
             background-color: #333;
             border: none;
-            padding: 15px 20px;
+            padding: 10.5px 14px; /* Reduced from 15px 20px (30% smaller) */
             border-radius: 10px;
-            font-size: 1.2rem;
+            font-size: 0.84rem; /* Reduced from 1.2rem (30% smaller) */
             color: #e6e6e6;
             font-family: 'Tahoma', sans-serif;
             transition: all 0.3s ease;
@@ -114,9 +114,9 @@
         }
 
         .button-item img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
+            width: 35px; /* Reduced from 50px (30% smaller) */
+            height: 35px; /* Reduced from 50px (30% smaller) */
+            margin-bottom: 7px; /* Reduced from 10px (30% smaller) */
         }
 
         /* Starfield Animation */
@@ -132,11 +132,11 @@
         .star {
             position: absolute;
             background-color: #fff;
-            width: 12px; /* Increased size */
-            height: 12px; /* Increased size */
-            border-radius: 20%; /* Smooth edges */
+            width: 12px;
+            height: 12px;
+            border-radius: 20%;
             animation: drift 10s infinite;
-            transform: rotate(0deg); /* Initial rotation value */
+            transform: rotate(0deg);
         }
 
         @keyframes drift {
@@ -185,7 +185,7 @@
         }
 
         .status-text {
-            font-size: 1.2rem;
+            font-size: 0.84rem; /* Reduced from 1.2rem (30% smaller) */
             color: #e6e6e6;
         }
     </style>
@@ -283,7 +283,7 @@
             star.style.top = Math.random() * 100 + 'vh';
             star.style.animationDuration = (Math.random() * 5 + 5) + 's';
             star.style.animationDelay = (Math.random() * -5) + 's';
-            star.style.transform = 'rotate(' + Math.random() * 360 + 'deg)'; // Random rotation
+            star.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
             starfield.appendChild(star);
         }
 
