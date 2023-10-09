@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ratchet Method</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Reset and Universal Styles */
         *, *:before, *:after {
@@ -15,10 +16,10 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #1f1f1f;
             color: #ddd;
-            overflow: auto; /* Ensure scrolling is available */
+            overflow: auto;
         }
 
         /* Main content styling */
@@ -28,30 +29,30 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            padding: 22px; /* Increased from 20px (10% bigger) */
+            padding: 22px;
         }
 
         .container {
             z-index: 2;
-            padding: 15.4px; /* Increased from 14px (10% bigger) */
-            border-radius: 16.5px; /* Increased from 15px (10% bigger) */
-            max-width: 539px; /* Increased from 490px (10% bigger) */
-            width: 73.15%; /* Increased from 66.5% (10% bigger) */
+            padding: 15.4px;
+            border-radius: 16.5px;
+            max-width: 539px;
+            width: 73.15%;
             box-shadow: 0 8px 27.5px rgba(0, 0, 0, 0.2);
             text-align: center;
             background-color: #2e2e2e;
-            margin-bottom: 23.1px; /* Increased from 21px (10% bigger) */
+            margin-bottom: 23.1px;
         }
 
         h1 {
-            font-size: 1.925rem; /* Increased from 1.75rem (10% bigger) */
-            margin-bottom: 7.7px; /* Increased from 7px (10% bigger) */
+            font-size: 1.925rem;
+            margin-bottom: 7.7px;
             color: #fff;
         }
 
         .logo {
-            width: 61.6%; /* Increased from 56% (10% bigger) */
-            margin: 15.4px 0; /* Increased from 14px (10% bigger) */
+            width: 61.6%;
+            margin: 15.4px 0;
             pointer-events: none;
             transition: transform 0.4s ease;
         }
@@ -59,22 +60,22 @@
         /* Input Group */
         .input-group {
             display: flex;
-            margin-bottom: 7.7px; /* Increased from 7px (10% bigger) */
+            margin-bottom: 7.7px;
             justify-content: center;
             position: relative;
         }
 
         input[type="text"] {
             flex: 1;
-            padding: 7.7px 34.65px 7.7px 11.55px; /* Increased padding (10% bigger) */
+            padding: 7.7px 34.65px 7.7px 11.55px;
             border: 2px solid #444;
-            border-radius: 5.5px; /* Increased from 5px (10% bigger) */
-            font-size: 0.77rem; /* Increased from 0.7rem (10% bigger) */
+            border-radius: 5.5px;
+            font-size: 0.77rem;
             color: #ddd;
             background-color: #333;
             background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
             background-repeat: no-repeat;
-            background-size: 26.4px 26.4px; /* Increased from 24px 24px (10% bigger) */
+            background-size: 26.4px 26.4px;
             background-position: 95% center;
             transition: all 0.3s ease;
         }
@@ -84,34 +85,95 @@
             outline: none;
         }
 
-        /* Buttons Group */
-        .button-group {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 15.4px; /* Increased from 14px (10% bigger) */
-            margin-top: 7.7px; /* Increased from 7px (10% bigger) */
-        }
-
-        .button-item button {
+        /* Button Styles */
+        #sitesButton, #helpButton {
             background-color: #333;
             border: none;
-            padding: 11.55px 15.4px; /* Increased from 10.5px 14px (10% bigger) */
-            border-radius: 11px; /* Increased from 10px (10% bigger) */
-            font-size: 0.924rem; /* Increased from 0.84rem (10% bigger) */
+            padding: 11.55px 15.4px;
+            border-radius: 11px;
+            font-size: 0.924rem;
             color: #e6e6e6;
-            font-family: 'Tahoma', sans-serif;
+            font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
+            cursor: pointer;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        #sitesButton:hover {
+            background-color: #007acc;
+        }
+
+        /* Sites Menu */
+        #sitesMenu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(46,46,46, 0.95);
+            z-index: 5;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            transition: opacity 0.5s;
+        }
+
+        .sites-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .site-item {
+            margin: 15px;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
-            cursor: pointer;
+            background-color: #2e2e2e;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s;
         }
 
-        .button-item img {
-            width: 38.5px; /* Increased from 35px (10% bigger) */
-            height: 38.5px; /* Increased from 35px (10% bigger) */
-            margin-bottom: 7.7px; /* Increased from 7px (10% bigger) */
+        .site-item:hover {
+            transform: scale(1.1);
+        }
+
+        .site-item img {
+            width: 38.5px;
+            height: 38.5px;
+            margin-bottom: 10px;
+        }
+
+        .site-item span {
+            color: #e6e6e6;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Close Button */
+        #sitesMenu button {
+            padding: 7px 14px;
+            background-color: #007acc;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transition: background-color 0.3s;
+        }
+
+        #sitesMenu button:hover {
+            background-color: #005a8b;
         }
 
         /* Starfield Animation */
@@ -127,9 +189,9 @@
         .star {
             position: absolute;
             background-color: #fff;
-            width: 13.2px; /* Increased from 12px (10% bigger) */
-            height: 13.2px; /* Increased from 12px (10% bigger) */
-            border-radius: 22%; /* Increased from 20% (10% bigger) */
+            width: 13.2px;
+            height: 13.2px;
+            border-radius: 22%;
             animation: drift 10s infinite;
             transform: rotate(0deg);
             filter: blur(1px);
@@ -163,11 +225,11 @@
         #loadingBarContainer {
             position: relative;
             width: 40%;
-            height: 16.5px; /* Increased from 15px (10% bigger) */
+            height: 16.5px;
             background-color: #333;
-            border-radius: 11px; /* Increased from 10px (10% bigger) */
+            border-radius: 11px;
             overflow: hidden;
-            margin-top: 22px; /* Increased from 20px (10% bigger) */
+            margin-top: 22px;
         }
 
         #loadingBar {
@@ -181,7 +243,7 @@
         }
 
         .status-text {
-            font-size: 0.924rem; /* Increased from 0.84rem (10% bigger) */
+            font-size: 0.924rem;
             color: #e6e6e6;
         }
     </style>
@@ -207,36 +269,44 @@
             <div class="input-group">
                 <input type="text" id="searchInput" placeholder="" onkeyup="enterSearch(event)">
             </div>
-            <div class="button-group">
-                <div class="button-item">
-                    <button onclick="window.open('https://discord.com', '_blank')">
-                        <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/j9ayl2y9.png" alt="Discord">
-                        Discord
-                    </button>
-                </div>
-                <div class="button-item">
-                    <button onclick="window.open('https://cplegacy.com', '_blank')">
-                        <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/vidvje9z.png" alt="Club Penguin">
-                        Club Penguin
-                    </button>
-                </div>
-                <div class="button-item">
-                    <button onclick="window.open('https://coolmathgames.com', '_blank')">
-                        <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/lrnfi2z8.png" alt="CoolMath">
-                        CoolMath
-                    </button>
-                </div>
-                <div class="button-item">
-                    <button onclick="window.open('https://youtube.com', '_blank')">
-                        <img src="https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc" alt="YouTube">
-                        YouTube
-                    </button>
-                </div>
+            <button id="sitesButton" onclick="toggleSitesMenu()">Sites</button>
+            <button id="helpButton" style="background: none; border: none; cursor: default;">Use the Two arrows on your chromebook's keyboard to move back and forth throughout pages. When you click on any of the buttons or use the search, it will pop up in an unblocked window. To return to this homepage, hit the X in the top right of the window.</button>
+        </div>
+    </div>
+
+    <!-- Sites Menu -->
+    <div id="sitesMenu">
+        <div class="sites-list">
+            <div class="site-item" onclick="window.open('https://cplegacy.com', '_blank')">
+                <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/vidvje9z.png" alt="Club Penguin">
+                <span>Club Penguin</span>
             </div>
-            <div class="note">
-                Use the Two arrows on your chromebook's keyboard to move back and forth throughout pages. When you click on any of the four buttons or use the search, it will pop up in an unblocked window. To return to this homepage, hit the X in the top right of the window.
+            <div class="site-item" onclick="window.open('https://coolmathgames.com', '_blank')">
+                <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/lrnfi2z8.png" alt="CoolMath">
+                <span>CoolMath</span>
+            </div>
+            <div class="site-item" onclick="window.open('https://discord.com', '_blank')">
+                <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/j9ayl2y9.png" alt="Discord">
+                <span>Discord</span>
+            </div>
+            <div class="site-item" onclick="window.open('https://www.google.com', '_blank')">
+                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
+                <span>Google</span>
+            </div>
+            <div class="site-item" onclick="window.open('https://now.gg', '_blank')">
+                <img src="https://play-lh.googleusercontent.com/FzgG6V6e4xAP4eP3ZKjbR7FaRY0mb9pPbGhJz4kNkfi-6Lz0yo2Q0OMryaQOmrFZT0k=w720-h310" alt="Now.gg">
+                <span>Now.gg</span>
+            </div>
+            <div class="site-item" onclick="window.open('https://play.geforcenow.com', '_blank')">
+                <img src="https://play-lh.googleusercontent.com/a/AATXAJw9rCnmB_ya7VsibfWzPO_iuJD3AyuT2WByJcUo=s180-rw" alt="GeForce Now">
+                <span>GeForce Now</span>
+            </div>
+            <div class="site-item" onclick="window.open('https://youtube.com', '_blank')">
+                <img src="https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc" alt="YouTube">
+                <span>YouTube</span>
             </div>
         </div>
+        <button onclick="toggleSitesMenu()">Close</button>
     </div>
 
     <script>
@@ -281,6 +351,23 @@
             star.style.animationDelay = (Math.random() * -5) + 's';
             star.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
             starfield.appendChild(star);
+        }
+
+        // Show or Hide Sites Menu
+        function toggleSitesMenu() {
+            const sitesMenu = document.getElementById('sitesMenu');
+            if (sitesMenu.style.display === "none" || sitesMenu.style.display === "") {
+                sitesMenu.style.display = "flex";
+                sitesMenu.style.opacity = "0";
+                setTimeout(() => {
+                    sitesMenu.style.opacity = "1";
+                }, 50);
+            } else {
+                sitesMenu.style.opacity = "0";
+                setTimeout(() => {
+                    sitesMenu.style.display = "none";
+                }, 500);
+            }
         }
 
         // Search functionality
