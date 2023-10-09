@@ -117,27 +117,27 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 30px;
+            gap: 33px;
             transition: opacity 0.5s;
         }
 
         .sites-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 33px;
             justify-content: center;
             align-items: center;
         }
 
         .site-item {
-            margin: 15px;
+            margin: 16.5px;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
             background-color: #2e2e2e;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 16.5px;
+            border-radius: 11px;
             transition: transform 0.3s;
         }
 
@@ -146,29 +146,29 @@
         }
 
         .site-item img {
-            width: 38.5px;
-            height: 38.5px;
-            margin-bottom: 10px;
+            width: 42.35px;
+            height: 42.35px;
+            margin-bottom: 11px;
         }
 
         .site-item span {
             color: #e6e6e6;
-            font-size: 1rem;
+            font-size: 0.77rem;
             font-weight: 600;
         }
 
         /* Close Button */
         #sitesMenu button {
-            padding: 7px 14px;
+            padding: 7.7px 15.4px;
             background-color: #007acc;
             border: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
+            border-radius: 5.5px;
+            font-size: 0.847rem;
             color: #fff;
             cursor: pointer;
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 22px;
+            right: 22px;
             transition: background-color 0.3s;
         }
 
@@ -189,12 +189,12 @@
         .star {
             position: absolute;
             background-color: #fff;
-            width: 13.2px;
-            height: 13.2px;
-            border-radius: 22%;
+            width: 14.52px;
+            height: 14.52px;
+            border-radius: 24%;
             animation: drift 10s infinite;
             transform: rotate(0deg);
-            filter: blur(1px);
+            filter: blur(1.43px);
         }
 
         @keyframes drift {
@@ -225,11 +225,11 @@
         #loadingBarContainer {
             position: relative;
             width: 40%;
-            height: 16.5px;
+            height: 18.15px;
             background-color: #333;
-            border-radius: 11px;
+            border-radius: 12.1px;
             overflow: hidden;
-            margin-top: 22px;
+            margin-top: 24.2px;
         }
 
         #loadingBar {
@@ -243,7 +243,7 @@
         }
 
         .status-text {
-            font-size: 0.924rem;
+            font-size: 1.016rem;
             color: #e6e6e6;
         }
     </style>
@@ -270,7 +270,7 @@
                 <input type="text" id="searchInput" placeholder="" onkeyup="enterSearch(event)">
             </div>
             <button id="sitesButton" onclick="toggleSitesMenu()">Sites</button>
-            <button id="helpButton" style="background: none; border: none; cursor: default;">Use the Two arrows on your chromebook's keyboard to move back and forth throughout pages. When you click on any of the buttons or use the search, it will pop up in an unblocked window. To return to this homepage, hit the X in the top right of the window.</button>
+            <button id="helpButton">Use the Two arrows on your chromebook's keyboard to move back and forth throughout pages. When you click on any of the buttons or use the search, it will pop up in an unblocked window. To return to this homepage, hit the X in the top right of the window.</button>
         </div>
     </div>
 
@@ -281,9 +281,17 @@
                 <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/vidvje9z.png" alt="Club Penguin">
                 <span>Club Penguin</span>
             </div>
+            <div class="site-item" onclick="window.open('https://crazygames.com', '_blank')">
+                <img src="https://www.google.com/s2/favicons?sz=128&domain_url=crazygames.com" alt="Crazy Games">
+                <span>Crazy Games</span>
+            </div>
             <div class="site-item" onclick="window.open('https://coolmathgames.com', '_blank')">
                 <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/lrnfi2z8.png" alt="CoolMath">
                 <span>CoolMath</span>
+            </div>
+            <div class="site-item" onclick="window.open('https://cheatnetwork.eu', '_blank')">
+                <img src="https://www.google.com/s2/favicons?sz=128&domain_url=cheatnetwork.eu" alt="CheatNetwork">
+                <span>CheatNetwork</span>
             </div>
             <div class="site-item" onclick="window.open('https://discord.com', '_blank')">
                 <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/j9ayl2y9.png" alt="Discord">
@@ -293,13 +301,29 @@
                 <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
                 <span>Google</span>
             </div>
-            <div class="site-item" onclick="window.open('https://now.gg', '_blank')">
-                <img src="https://play-lh.googleusercontent.com/FzgG6V6e4xAP4eP3ZKjbR7FaRY0mb9pPbGhJz4kNkfi-6Lz0yo2Q0OMryaQOmrFZT0k=w720-h310" alt="Now.gg">
-                <span>Now.gg</span>
+            <div class="site-item" onclick="window.open('https://kahootbot.mem.rip', '_blank')">
+                <img src="https://www.google.com/s2/favicons?sz=128&domain_url=mem.rip" alt="Kahoot Bot">
+                <span>Kahoot Bot</span>
             </div>
             <div class="site-item" onclick="window.open('https://play.geforcenow.com', '_blank')">
                 <img src="https://play-lh.googleusercontent.com/a/AATXAJw9rCnmB_ya7VsibfWzPO_iuJD3AyuT2WByJcUo=s180-rw" alt="GeForce Now">
                 <span>GeForce Now</span>
+            </div>
+            <div class="site-item" onclick="window.open('https://now.gg', '_blank')">
+                <img src="https://play-lh.googleusercontent.com/FzgG6V6e4xAP4eP3ZKjbR7FaRY0mb9pPbGhJz4kNkfi-6Lz0yo2Q0OMryaQOmrFZT0k=w720-h310" alt="Now.gg">
+                <span>Now.gg</span>
+            </div>
+            <div class="site-item" onclick="window.open('https://ravengreens.vercel.app', '_blank')">
+                <img src="https://www.google.com/s2/favicons?sz=128&domain_url=vercel.app" alt="Minecraft 1.8.8">
+                <span>Minecraft 1.8.8</span>
+            </div>
+            <div class="site-item" onclick="window.open('https://poki.com', '_blank')">
+                <img src="https://www.google.com/s2/favicons?sz=128&domain_url=poki.com" alt="Poki">
+                <span>Poki</span>
+            </div>
+            <div class="site-item" onclick="window.open('https://spotify.com', '_blank')">
+                <img src="https://www.google.com/s2/favicons?sz=128&domain_url=spotify.com" alt="Spotify">
+                <span>Spotify</span>
             </div>
             <div class="site-item" onclick="window.open('https://youtube.com', '_blank')">
                 <img src="https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc" alt="YouTube">
