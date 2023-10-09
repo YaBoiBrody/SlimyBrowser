@@ -28,30 +28,30 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            padding: 20px; /* Give some padding for smaller screens */
+            padding: 22px; /* Increased from 20px (10% bigger) */
         }
 
         .container {
             z-index: 2;
-            padding: 14px; /* Reduced from 20px (30% smaller) */
-            border-radius: 15px;
-            max-width: 490px; /* Reduced from 700px (30% smaller) */
-            width: 66.5%; /* Reduced from 95% (30% smaller) */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            padding: 15.4px; /* Increased from 14px (10% bigger) */
+            border-radius: 16.5px; /* Increased from 15px (10% bigger) */
+            max-width: 539px; /* Increased from 490px (10% bigger) */
+            width: 73.15%; /* Increased from 66.5% (10% bigger) */
+            box-shadow: 0 8px 27.5px rgba(0, 0, 0, 0.2);
             text-align: center;
             background-color: #2e2e2e;
-            margin-bottom: 21px; /* Reduced from 30px (30% smaller) */
+            margin-bottom: 23.1px; /* Increased from 21px (10% bigger) */
         }
 
         h1 {
-            font-size: 1.75rem; /* Reduced from 2.5rem (30% smaller) */
-            margin-bottom: 7px; /* Reduced from 10px (30% smaller) */
+            font-size: 1.925rem; /* Increased from 1.75rem (10% bigger) */
+            margin-bottom: 7.7px; /* Increased from 7px (10% bigger) */
             color: #fff;
         }
 
         .logo {
-            width: 56%; /* Reduced from 80% (30% smaller) */
-            margin: 14px 0; /* Reduced from 20px (30% smaller) */
+            width: 61.6%; /* Increased from 56% (10% bigger) */
+            margin: 15.4px 0; /* Increased from 14px (10% bigger) */
             pointer-events: none;
             transition: transform 0.4s ease;
         }
@@ -59,22 +59,22 @@
         /* Input Group */
         .input-group {
             display: flex;
-            margin-bottom: 7px; /* Reduced from 10px (30% smaller) */
+            margin-bottom: 7.7px; /* Increased from 7px (10% bigger) */
             justify-content: center;
             position: relative;
         }
 
         input[type="text"] {
             flex: 1;
-            padding: 7px 31.5px 7px 10.5px; /* Reduced padding (30% smaller) */
+            padding: 7.7px 34.65px 7.7px 11.55px; /* Increased padding (10% bigger) */
             border: 2px solid #444;
-            border-radius: 5px;
-            font-size: 0.7rem; /* Reduced from 1rem (30% smaller) */
+            border-radius: 5.5px; /* Increased from 5px (10% bigger) */
+            font-size: 0.77rem; /* Increased from 0.7rem (10% bigger) */
             color: #ddd;
             background-color: #333;
             background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
             background-repeat: no-repeat;
-            background-size: 24px 24px;
+            background-size: 26.4px 26.4px; /* Increased from 24px 24px (10% bigger) */
             background-position: 95% center;
             transition: all 0.3s ease;
         }
@@ -89,16 +89,16 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            gap: 14px; /* Reduced from 20px (30% smaller) */
-            margin-top: 7px; /* Reduced from 10px (30% smaller) */
+            gap: 15.4px; /* Increased from 14px (10% bigger) */
+            margin-top: 7.7px; /* Increased from 7px (10% bigger) */
         }
 
         .button-item button {
             background-color: #333;
             border: none;
-            padding: 10.5px 14px; /* Reduced from 15px 20px (30% smaller) */
-            border-radius: 10px;
-            font-size: 0.84rem; /* Reduced from 1.2rem (30% smaller) */
+            padding: 11.55px 15.4px; /* Increased from 10.5px 14px (10% bigger) */
+            border-radius: 11px; /* Increased from 10px (10% bigger) */
+            font-size: 0.924rem; /* Increased from 0.84rem (10% bigger) */
             color: #e6e6e6;
             font-family: 'Tahoma', sans-serif;
             transition: all 0.3s ease;
@@ -108,15 +108,10 @@
             cursor: pointer;
         }
 
-        .button-item button:hover {
-            transform: scale(1.05);
-            background-color: #007acc;
-        }
-
         .button-item img {
-            width: 35px; /* Reduced from 50px (30% smaller) */
-            height: 35px; /* Reduced from 50px (30% smaller) */
-            margin-bottom: 7px; /* Reduced from 10px (30% smaller) */
+            width: 38.5px; /* Increased from 35px (10% bigger) */
+            height: 38.5px; /* Increased from 35px (10% bigger) */
+            margin-bottom: 7.7px; /* Increased from 7px (10% bigger) */
         }
 
         /* Starfield Animation */
@@ -132,11 +127,12 @@
         .star {
             position: absolute;
             background-color: #fff;
-            width: 12px;
-            height: 12px;
-            border-radius: 20%;
+            width: 13.2px; /* Increased from 12px (10% bigger) */
+            height: 13.2px; /* Increased from 12px (10% bigger) */
+            border-radius: 22%; /* Increased from 20% (10% bigger) */
             animation: drift 10s infinite;
             transform: rotate(0deg);
+            filter: blur(1px);
         }
 
         @keyframes drift {
@@ -167,11 +163,11 @@
         #loadingBarContainer {
             position: relative;
             width: 40%;
-            height: 15px;
+            height: 16.5px; /* Increased from 15px (10% bigger) */
             background-color: #333;
-            border-radius: 10px;
+            border-radius: 11px; /* Increased from 10px (10% bigger) */
             overflow: hidden;
-            margin-top: 20px;
+            margin-top: 22px; /* Increased from 20px (10% bigger) */
         }
 
         #loadingBar {
@@ -185,7 +181,7 @@
         }
 
         .status-text {
-            font-size: 0.84rem; /* Reduced from 1.2rem (30% smaller) */
+            font-size: 0.924rem; /* Increased from 0.84rem (10% bigger) */
             color: #e6e6e6;
         }
     </style>
