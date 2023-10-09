@@ -477,21 +477,26 @@
         }
 
         function openPage() {
-            var userInput = document.getElementById('searchInput').value;
-            var targetUrl = '';
-            if (!userInput.trim()) {
-                alert("Please enter a search term or URL!");
-                return;
-            }
+    var userInput = document.getElementById('searchInput').value;
+    var targetUrl = '';
 
-            if (userInput.startsWith('http://') || userInput.startsWith('https://')) {
-                targetUrl = userInput;
-            } else {
-                targetUrl = 'https://www.google.com/search?q=' + encodeURIComponent(userInput);
-            }
+    if (!userInput.trim()) {
+        alert("Please enter a search term or URL!");
+        return;
+    }
 
-            window.open(targetUrl, '_blank');
-        }
+    if (userInput.startsWith('http://') || userInput.startsWith('https://')) {
+        targetUrl = userInput;
+    } else if (userInput.includes('.')) {
+        // Checks if userInput has a dot, making an assumption it's a URL
+        targetUrl = 'https://' + userInput;
+    } else {
+        targetUrl = 'https://www.google.com/search?q=' + encodeURIComponent(userInput);
+    }
+
+    window.open(targetUrl, '_blank');
+}
+
     </script>
 </body>
 </html>
