@@ -555,18 +555,6 @@
 
     window.open(targetUrl, '_blank');
 
-function filterSites(event) {
-    const searchTerm = event.target.value.toLowerCase();
-    const siteItems = document.querySelectorAll('.site-item');
-
-    siteItems.forEach(item => {
-        const siteName = item.querySelector('span').textContent.toLowerCase();
-        if (siteName.includes(searchTerm)) {
-            item.style.display = 'flex';
-        } else {
-            item.style.display = 'none';
-        }
-    });
 }
 
 
