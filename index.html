@@ -139,7 +139,10 @@
             padding: 16.5px;
             border-radius: 11px;
             transition: transform 0.3s;
-        }
+            transition: opacity 0.5s;
+	  }
+		
+		
 
         .site-item:hover {
             transform: scale(1.1);
@@ -277,6 +280,13 @@
 
 <!-- Sites Menu -->
 <div id="sitesMenu">
+
+<!-- Search bar for sites -->
+<div class="input-group" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%);">
+    <input type="text" id="siteSearchInput" placeholder="Search sites..." oninput="filterSites()">
+</div>
+
+
     <div class="sites-list">
          <!-- ChatGPT -->
 <div class="site-item" onclick="window.open('https://chat.openai.com', '_blank')">
@@ -571,6 +581,24 @@
 
 }
 
+function filterSites() {
+    const searchTerm = document.getElementById('siteSearchInput').value.toLowerCase();
+    const siteItems = document.querySelectorAll('.site-item');
+
+    siteItems.forEach(item => {
+        const siteName = item.querySelector('span').textContent.toLowerCase();
+        if (siteName.includes(searchTerm)) {
+            item.style.display = 'flex';
+            item.style.opacity = '1';
+            item.style.transition = 'opacity 0.5s';
+        } else {
+            item.style.opacity = '0';
+            setTimeout(() => {
+                item.style.display = 'none';
+            }, 500);
+        }
+    });
+}
 
 
     </script>
