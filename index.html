@@ -448,7 +448,14 @@
     <img src="https://media.tenor.com/odF-mX4YCcwAAAAC/rachet-cat-attack.gif" alt="Ratchet Kitty">
     <span>Ratchet Forums</span>
 </div>
+
+<!-- Added Github -->
+        <div class="site-item" onclick="window.open('https://github.com', '_blank')">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github">
+            <span>Github</span>
+        </div>
 	    
+
 <!-- YouTube -->
 <div class="site-item" onclick="window.open('https://youtube.com', '_blank')">
     <img src="https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc" alt="YouTube">
@@ -547,7 +554,22 @@
     }
 
     window.open(targetUrl, '_blank');
+
+function filterSites(event) {
+    const searchTerm = event.target.value.toLowerCase();
+    const siteItems = document.querySelectorAll('.site-item');
+
+    siteItems.forEach(item => {
+        const siteName = item.querySelector('span').textContent.toLowerCase();
+        if (siteName.includes(searchTerm)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
 }
+
+
 
     </script>
 </body>
