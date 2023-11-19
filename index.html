@@ -7,6 +7,72 @@
     <title>Ratchet Method</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+
+	.button-style {
+    background-color: #333;
+    border: none;
+    padding: 11.55px 15.4px;
+    border-radius: 11px;
+    font-size: 0.924rem;
+    color: #e6e6e6;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.button-style:hover {
+    background-color: #007acc;
+}
+
+
+	.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.popup {
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.popup h2 {
+    color: #fff;
+}
+
+.popup p {
+    color: #ddd;
+}
+
+.popup-buttons button {
+    background-color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #e6e6e6;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.popup-buttons button:hover {
+    background-color: #007acc;
+}
+
+
         /* Reset and Universal Styles */
         *, *:before, *:after {
             box-sizing: border-box;
@@ -255,6 +321,18 @@
 
 <body oncontextmenu="return false">
 
+<div id="popupOverlay" class="popup-overlay">
+    <div class="popup">
+        <h2>Please Read</h2>
+        <p>This button is only used to fix issues with websites that are things like first person shooters and such. This includes things like GeForce Now. If you are not having problems with any websites right now, do not change this, if you are change this. but please remember THIS IS PERMANENT AND TO GO BACK TO THIS MAIN PAGE YOU MUST RESTART SPARKVUE.</p>
+        <div class="popup-buttons">
+            <button id="popupOk">OK</button>
+            <button id="popupCancel">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
     <!-- Loading Screen Structure -->
     <div id="loadingScreen">
         <div class="status-text">Loading...</div>
@@ -275,6 +353,8 @@
             </div>
             <button id="sitesButton" onclick="toggleSitesMenu()">Sites</button>
             <button id="helpButton">Use the Two arrows on your chromebook's keyboard to move back and forth throughout pages. When you click on any of the buttons or use the search, it will pop up in an unblocked window. To return to this homepage, hit the X in the top right of the window.</button>
+			<button id="toggleOpenModeButton" class="button-style">Current mode: Temporary Popup</button>
+
         </div>
     </div>
 
@@ -283,199 +363,226 @@
 
     <div class="sites-list">
          <!-- ChatGPT -->
-<div class="site-item" onclick="window.open('https://chat.openai.com', '_blank')">
+<div class="site-item" data-url="https://chat.openai.com">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png" alt="ChatGPT">
     <span>ChatGPT</span>
 </div>
 
-<!-- CheatNetwork -->
-<div class="site-item" onclick="window.open('https://cheatnetwork.eu', '_blank')">
+<div class="site-item" data-url="https://cheatnetwork.eu">
     <img src="https://www.google.com/s2/favicons?sz=128&domain_url=cheatnetwork.eu" alt="CheatNetwork">
     <span>CheatNetwork</span>
 </div>
 
-<!-- Club Penguin -->
-<div class="site-item" onclick="window.open('https://cplegacy.com', '_blank')">
+<div class="site-item" data-url="https://cplegacy.com">
     <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/vidvje9z.png" alt="Club Penguin">
     <span>Club Penguin</span>
 </div>
 
-<!-- Cookie Clicker -->
-<div class="site-item" onclick="window.open('https://orteil.dashnet.org/cookieclicker/', '_blank')">
+<div class="site-item" data-url="https://orteil.dashnet.org/cookieclicker/">
     <img src="https://play-lh.googleusercontent.com/OssE3ON9WsLZedOF39UCgtIHcRYfV0OqQS9O78LfmRdxSyKdHX52G2OFa0LkG6D-k9w" alt="Cookie Clicker">
     <span>Cookie Clicker</span>
 </div>
 
-<!-- CoolMath -->
-<div class="site-item" onclick="window.open('https://coolmathgames.com', '_blank')">
+<div class="site-item" data-url="https://coolmathgames.com">
     <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/lrnfi2z8.png" alt="CoolMath">
     <span>CoolMath</span>
 </div>
 
-<!-- Crazy Games -->
-<div class="site-item" onclick="window.open('https://crazygames.com', '_blank')">
+
+<div class="site-item" data-url="https://chat.openai.com">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png" alt="ChatGPT">
+    <span>ChatGPT</span>
+</div>
+
+<div class="site-item" data-url="https://cheatnetwork.eu">
+    <img src="https://www.google.com/s2/favicons?sz=128&domain_url=cheatnetwork.eu" alt="CheatNetwork">
+    <span>CheatNetwork</span>
+</div>
+
+<div class="site-item" data-url="https://cplegacy.com">
+    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/vidvje9z.png" alt="Club Penguin">
+    <span>Club Penguin</span>
+</div>
+
+<div class="site-item" data-url="https://orteil.dashnet.org/cookieclicker/">
+    <img src="https://play-lh.googleusercontent.com/OssE3ON9WsLZedOF39UCgtIHcRYfV0OqQS9O78LfmRdxSyKdHX52G2OFa0LkG6D-k9w" alt="Cookie Clicker">
+    <span>Cookie Clicker</span>
+</div>
+
+<div class="site-item" data-url="https://coolmathgames.com">
+    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/lrnfi2z8.png" alt="CoolMath">
+    <span>CoolMath</span>
+</div>
+
+<div class="site-item" data-url="https://crazygames.com">
     <img src="https://www.google.com/s2/favicons?sz=128&domain_url=crazygames.com" alt="Crazy Games">
     <span>Crazy Games</span>
 </div>
 
-<!-- Discord -->
-<div class="site-item" onclick="window.open('https://discord.com', '_blank')">
+<div class="site-item" data-url="https://discord.com">
     <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/j9ayl2y9.png" alt="Discord">
     <span>Discord</span>
 </div>
 
+<!-- Continue with the rest of the items in a similar fashion -->
 
-<!-- Fraction Calculator Site -->
-<div class="site-item" onclick="window.open('https://www.calculatorsoup.com/calculators/math/fractions.php', '_blank')">
+
+<div class="site-item" data-url="https://chat.openai.com">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png" alt="ChatGPT">
+    <span>ChatGPT</span>
+</div>
+
+<div class="site-item" data-url="https://cheatnetwork.eu">
+    <img src="https://www.google.com/s2/favicons?sz=128&domain_url=cheatnetwork.eu" alt="CheatNetwork">
+    <span>CheatNetwork</span>
+</div>
+
+<div class="site-item" data-url="https://cplegacy.com">
+    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/vidvje9z.png" alt="Club Penguin">
+    <span>Club Penguin</span>
+</div>
+
+<div class="site-item" data-url="https://orteil.dashnet.org/cookieclicker/">
+    <img src="https://play-lh.googleusercontent.com/OssE3ON9WsLZedOF39UCgtIHcRYfV0OqQS9O78LfmRdxSyKdHX52G2OFa0LkG6D-k9w" alt="Cookie Clicker">
+    <span>Cookie Clicker</span>
+</div>
+
+<div class="site-item" data-url="https://coolmathgames.com">
+    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/lrnfi2z8.png" alt="CoolMath">
+    <span>CoolMath</span>
+</div>
+
+<div class="site-item" data-url="https://crazygames.com">
+    <img src="https://www.google.com/s2/favicons?sz=128&domain_url=crazygames.com" alt="Crazy Games">
+    <span>Crazy Games</span>
+</div>
+
+<div class="site-item" data-url="https://discord.com">
+    <img src="https://r2.e-z.host/601dd602-18bf-4a30-b9eb-9aba2e181e74/j9ayl2y9.png" alt="Discord">
+    <span>Discord</span>
+</div>
+
+<div class="site-item" data-url="https://www.calculatorsoup.com/calculators/math/fractions.php">
     <img src="https://cdn.calculatorsoup.com/images/thumbnails/calculator_soup_logo_260x260.png" alt="Fraction Calculator">
     <span>Fraction Calculator</span>
 </div>
 
-<!-- Distributive Property Calculator Site -->
-<div class="site-item" onclick="window.open('https://www.symbolab.com/solver/distributive-property-calculator', '_blank')">
+<div class="site-item" data-url="https://www.symbolab.com/solver/distributive-property-calculator">
     <img src="https://m.media-amazon.com/images/I/71hSAIENHkL._AC_UF894,1000_QL80_.jpg" alt="Distributive Property Calculator">
     <span>Distributive Property Calculator</span>
 </div>
 
-
-<!-- GeForce Now -->
-<div class="site-item" onclick="window.open('https://play.geforcenow.com', '_blank')">
+<div class="site-item" data-url="https://play.geforcenow.com">
     <img src="https://yt3.googleusercontent.com/ytc/APkrFKZIF_w8I7JTU072wsWefvaTBMmzkiuJfOKlOAfcOs0=s900-c-k-c0x00ffffff-no-rj" alt="GeForce Now">
     <span>GeForce Now</span>
 </div>
 
-
-<div class="site-item" onclick="window.open('https://mail.google.com', '_blank')">
+<div class="site-item" data-url="https://mail.google.com">
     <img src="https://play-lh.googleusercontent.com/KSuaRLiI_FlDP8cM4MzJ23ml3og5Hxb9AapaGTMZ2GgR103mvJ3AAnoOFz1yheeQBBI" alt="Gmail">
     <span>Gmail</span>
 </div>
 
-
-
-<!-- Instagram -->
-<div class="site-item" onclick="window.open('https://www.instagram.com/', '_blank')">
+<div class="site-item" data-url="https://www.instagram.com/">
     <img src="https://instagram.com/static/images/ico/favicon.ico/36b3ee2d91ed.ico" alt="Instagram">
     <span>Instagram</span>
 </div>
 
-<!-- Google -->
-<div class="site-item" onclick="window.open('https://www.google.com', '_blank')">
+<div class="site-item" data-url="https://www.google.com">
     <img src="https://pbs.twimg.com/profile_images/1605297940242669568/q8-vPggS_400x400.jpg" alt="Google">
     <span>Google</span>
 </div>
 
-<!-- Kahoot Bot -->
-<div class="site-item" onclick="window.open('https://mem.rip/kahoot', '_blank')">
+<div class="site-item" data-url="https://mem.rip/kahoot">
     <img src="https://www.google.com/s2/favicons?sz=128&domain_url=mem.rip" alt="Kahoot Bot">
     <span>Kahoot Bot</span>
 </div>
 
-<div class="site-item" onclick="window.open('https://krunker.io', '_blank')">
+<div class="site-item" data-url="https://krunker.io">
     <img src="https://play-lh.googleusercontent.com/YiIdFPGRikQVMAcT8Bg5MiYRgi9YHwsFfP5RsfBcpwKqsl_y3AWqbJ8rhJ0TnLIsdg" alt="Krunker">
     <span>Krunker</span>
 </div>
 
-<!-- Minecraft 1.8.8 -->
-<div class="site-item" onclick="window.open('https://ravengreens.vercel.app', '_blank')">
+<div class="site-item" data-url="https://ravengreens.vercel.app">
     <img src="https://i.imgflip.com/63qbua.png" alt="Minecraft 1.8.8">
     <span>Minecraft 1.8.8</span>
 </div>
 
-
-<!-- Now.gg -->
-<div class="site-item" onclick="window.open('https://now.gg', '_blank')">
+<div class="site-item" data-url="https://now.gg">
     <img src="https://images.crunchbase.com/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/utxrpthyzouvxkvh1kmw" alt="Now.gg">
     <span>Now.gg</span>
 </div>
-<!-- Reddit -->
-<div class="site-item" onclick="window.open('https://www.reddit.com/', '_blank')">
+
+<div class="site-item" data-url="https://www.reddit.com/">
     <img src="https://www.redditinc.com/assets/images/site/reddit-logo.png" alt="Reddit">
     <span>Reddit</span>
 </div>
-<!-- Poki -->
-<div class="site-item" onclick="window.open('https://poki.com', '_blank')">
+
+<div class="site-item" data-url="https://poki.com">
     <img src="https://www.google.com/s2/favicons?sz=128&domain_url=poki.com" alt="Poki">
     <span>Poki</span>
 </div>
 
-<!-- Roblox -->
-<div class="site-item" onclick="window.open('https://now.gg/play/roblox-corporation/5349/roblox', '_blank')">
+<div class="site-item" data-url="https://now.gg/play/roblox-corporation/5349/roblox">
     <img src="https://yt3.googleusercontent.com/TkS_SRrMDXl-r_0ZoyllDOQlHL5mNQNLAOuZ2zVVMh9Yq-Ggzf82x6omxY7FsN5ghIxNj-1LZA=s900-c-k-c0x00ffffff-no-rj" alt="Roblox">
     <span>Roblox</span>
 </div>
 
-<!-- Scratch -->
-<div class="site-item" onclick="window.open('https://scratch.mit.edu/', '_blank')">
+<div class="site-item" data-url="https://scratch.mit.edu/">
     <img src="https://juniortech.org/wp-content/uploads/2020/09/Scratch-cat-logo-300x300px.png" alt="Scratch">
     <span>Scratch</span>
 </div>
 
-
-<!-- Spotify -->
-<div class="site-item" onclick="window.open('https://spotify.com', '_blank')">
+<div class="site-item" data-url="https://spotify.com">
     <img src="https://www.google.com/s2/favicons?sz=128&domain_url=spotify.com" alt="Spotify">
     <span>Spotify</span>
 </div>
 
-<div class="site-item" onclick="window.open('https://sansubwayy.web.app/', '_blank')">
+<div class="site-item" data-url="https://sansubwayy.web.app/">
     <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/7b6443b0074b79bdef21bae09e5cae4b.png" alt="Subway Surfers">
     <span>Subway Surfers</span>
 </div>
 
-
-<!-- Snapchat -->
-<div class="site-item" onclick="window.open('https://www.snapchat.com/', '_blank')">
+<div class="site-item" data-url="https://www.snapchat.com/">
     <img src="https://digitallegacyassociation.org/wp-content/uploads/2018/09/Snapchat.jpg" alt="Snapchat">
     <span>Snapchat</span>
 </div>
 
-<!-- Steam -->
-<div class="site-item" onclick="window.open('https://store.steampowered.com/', '_blank')">
+<div class="site-item" data-url="https://store.steampowered.com/">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/800px-Steam_icon_logo.svg.png" alt="Steam">
     <span>Steam</span>
 </div>
 
-
-<!-- TikTok -->
-<div class="site-item" onclick="window.open('https://tiktok.com', '_blank')">
+<div class="site-item" data-url="https://tiktok.com">
     <img src="https://www.rit.edu/sites/rit.edu/files/campaigns/umag/tiktok/tiktok-logo-header.png" alt="TikTok">
     <span>TikTok</span>
 </div>
 
-
-<!-- Twitch -->
-<div class="site-item" onclick="window.open('https://twitch.tv', '_blank')">
+<div class="site-item" data-url="https://twitch.tv">
     <img src="https://play-lh.googleusercontent.com/QLQzL-MXtxKEDlbhrQCDw-REiDsA9glUH4m16syfar_KVLRXlzOhN7tmAceiPerv4Jg" alt="Twitch">
     <span>Twitch</span>
 </div>
 
-<!-- Twitter -->
-<div class="site-item" onclick="window.open('https://twitter.com', '_blank')">
+<div class="site-item" data-url="https://twitter.com">
     <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Twitter">
     <span>Twitter</span>
 </div>
 
-<!-- Y8 Games -->
-<div class="site-item" onclick="window.open('https://y8.com', '_blank')">
+<div class="site-item" data-url="https://y8.com">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYqi9V2w5fMb5B576P4AG79WU28pL9WZuUkQ&usqp=CAU" alt="Y8 Games">
     <span>Y8 Games</span>
 </div>
 
-<!-- RF -->
-<div class="site-item" onclick="window.open('https://ratchetstudying.000webhostapp.com', '_blank')">
+<div class="site-item" data-url="https://ratchetstudying.000webhostapp.com">
     <img src="https://media.tenor.com/odF-mX4YCcwAAAAC/rachet-cat-attack.gif" alt="Ratchet Kitty">
     <span>Ratchet Forums</span>
 </div>
 
-<!-- Added Github -->
-        <div class="site-item" onclick="window.open('https://github.com', '_blank')">
-            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github">
-            <span>Github</span>
-        </div>
-	    
+<div class="site-item" data-url="https://github.com">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github">
+    <span>Github</span>
+</div>
 
-<!-- YouTube -->
-<div class="site-item" onclick="window.open('https://youtube.com', '_blank')">
+<div class="site-item" data-url="https://youtube.com">
     <img src="https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc" alt="YouTube">
     <span>YouTube</span>
 </div>
@@ -594,6 +701,95 @@ function filterSites() {
     });
 }
 
+// Add a variable at the top of your script to track the current opening mode
+let openInNewTab = true;
+
+// Modify the openPage function
+function openPage() {
+    var userInput = document.getElementById('searchInput').value;
+    var targetUrl = '';
+
+    if (!userInput.trim()) {
+        alert("Please enter a search term or URL!");
+        return;
+    }
+
+    if (userInput.startsWith('http://') || userInput.startsWith('https://')) {
+        targetUrl = userInput;
+    } else if (userInput.includes('.')) {
+        targetUrl = 'https://' + userInput;
+    } else {
+        targetUrl = 'https://www.google.com/search?q=' + encodeURIComponent(userInput);
+    }
+
+    // Check the current mode and open the link accordingly
+    if (openInNewTab) {
+        window.open(targetUrl, '_blank');
+    } else {
+        window.location.href = targetUrl;
+    }
+}
+
+// Function to toggle the opening mode
+function toggleOpenMode() {
+    openInNewTab = !openInNewTab;
+    document.getElementById('toggleOpenModeButton').textContent = openInNewTab ? "Current mode: Temporary Popup" : "Current Mode: Permanent Redirect (Fixes issues, but is perma)";
+}
+
+// Add the event listener to the new button
+document.getElementById('toggleOpenModeButton').addEventListener('click', toggleOpenMode);
+
+
+// Function to handle site item clicks
+function handleSiteItemClick() {
+    const url = this.getAttribute('data-url');
+    if (openInNewTab) {
+        window.open(url, '_blank');
+    } else {
+        window.location.href = url;
+    }
+}
+
+// Add click event listeners to all site items
+document.addEventListener('DOMContentLoaded', () => {
+    const siteItems = document.querySelectorAll('.site-item');
+    siteItems.forEach(item => {
+        item.addEventListener('click', handleSiteItemClick);
+    });
+});
+
+// Function to show the popup
+function showPopup() {
+    document.getElementById('popupOverlay').style.display = 'flex';
+}
+
+// Function to hide the popup
+function hidePopup() {
+    document.getElementById('popupOverlay').style.display = 'none';
+}
+
+// Modify the toggleOpenMode function to show the popup when switching to redirect mode
+function toggleOpenMode() {
+    if (!openInNewTab) {
+        openInNewTab = true;
+        document.getElementById('toggleOpenModeButton').textContent = "Current mode: Temporary Popup";
+    } else {
+        showPopup();
+    }
+}
+
+// Event listeners for the popup buttons
+document.getElementById('popupOk').addEventListener('click', function() {
+    openInNewTab = false;
+    document.getElementById('toggleOpenModeButton').textContent = "Current Mode: Permanent Redirect (Fixes issues, but is perma)";
+    hidePopup();
+});
+
+document.getElementById('popupCancel').addEventListener('click', function() {
+    hidePopup();
+});
+
+// Existing code for DOMContentLoaded and other logic...
 
     </script>
 </body>
