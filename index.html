@@ -8,6 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
 
+
+.cancel-button {
+    background-color: #007acc;
+}
+
+.cancel-button:hover {
+    background-color: #005a8b;
+}
+
+
+
 	.button-style {
     background-color: #333;
     border: none;
@@ -324,10 +335,13 @@
 <div id="popupOverlay" class="popup-overlay">
     <div class="popup">
         <h2>Please Read</h2>
-        <p>This button is only used to fix issues with websites that are things like first person shooters and such. This includes things like GeForce Now. If you are not having problems with any websites right now, do not change this, if you are change this. but please remember THIS IS PERMANENT AND TO GO BACK TO THIS MAIN PAGE YOU MUST RESTART SPARKVUE.</p>
+        <p>This button is only used to fix issues with websites that are first-person shooters and similar, including GeForce Now.</p>
+        <p>If you are not currently experiencing problems with any websites, do not change this setting.</p>
+        <p>If you are experiencing issues, you may change this setting, but please remember:</p>
+        <p><strong>THIS IS PERMANENT. TO RETURN TO THE MAIN PAGE, YOU MUST RESTART SPARKVUE.</strong></p>
         <div class="popup-buttons">
             <button id="popupOk">OK</button>
-            <button id="popupCancel">Cancel</button>
+            <button id="popupCancel" class="cancel-button">Cancel</button>
         </div>
     </div>
 </div>
@@ -353,7 +367,7 @@
             </div>
             <button id="sitesButton" onclick="toggleSitesMenu()">Sites</button>
             <button id="helpButton">Use the Two arrows on your chromebook's keyboard to move back and forth throughout pages. When you click on any of the buttons or use the search, it will pop up in an unblocked window. To return to this homepage, hit the X in the top right of the window.</button>
-			<button id="toggleOpenModeButton" class="button-style">Current mode: Temporary Popup</button>
+			<button id="toggleOpenModeButton" class="button-style">Current mode: Temporary Popup (IF YOUR HAVING TROUBLE WITH FPS GAMES CHANGE THIS)</button>
 
         </div>
     </div>
@@ -599,8 +613,8 @@
         const statusText = document.querySelector('.status-text');
         const loadingMessages = [
             "Bypassing antidaven...",
-            "Removing History Checks...",
-            "Bruteforcing GoGuardian Firewall..."
+            "Removing History...",
+            "Fanum Taxing GoGuardian Developers..."
         ];
         let loadingIndex = 0;
 
@@ -772,7 +786,7 @@ function hidePopup() {
 function toggleOpenMode() {
     if (!openInNewTab) {
         openInNewTab = true;
-        document.getElementById('toggleOpenModeButton').textContent = "Current mode: Temporary Popup";
+        document.getElementById('toggleOpenModeButton').textContent = "Current mode: Temporary Popup (IF YOUR HAVING TROUBLE WITH FPS GAMES CHANGE THIS)";
     } else {
         showPopup();
     }
